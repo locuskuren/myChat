@@ -42,12 +42,21 @@ const Users = () => {
     useSubscription<MessageInterface>(NEW_MESSAGE);
   const [uploadPic, { error: pictureError }] = useMutation(UPDATE_PROFILE_PIC);
 
+  const sortByLatest = (a: User, b: User) => {
+    return a.latestMessage && b.latestMessage
+      ? new Date(b.latestMessage.createdAt).getTime() -
+          new Date(a.latestMessage.createdAt).getTime()
+      : a.latestMessage && !b.latestMessage
+      ? -1
+      : 1;
+  };
+
   useEffect(() => {
     usersData &&
       setUsers(
-        usersData.getUsers.filter((user) =>
-          user.username.includes(searchTerm || '')
-        )
+        usersData.getUsers
+          .filter((user) => user.username.includes(searchTerm || ''))
+          .sort(sortByLatest)
       );
   }, [searchTerm, usersData]);
 
@@ -91,22 +100,10 @@ const Users = () => {
             })) ||
           null
       );
-  }, [messageData, selectedUser]);
+  }, [messageData, selectedUser, users]);
 
   useEffect(() => {
-    setUsers(
-      (prev) =>
-        (prev &&
-          prev.sort((a, b) => {
-            return a.latestMessage && b.latestMessage
-              ? new Date(b.latestMessage.createdAt).getTime() -
-                  new Date(a.latestMessage.createdAt).getTime()
-              : a.latestMessage && !b.latestMessage
-              ? -1
-              : 1;
-          })) ||
-        null
-    );
+    setUsers((prev) => (prev && prev.sort(sortByLatest)) || null);
   }, [users]);
 
   useEffect(() => {

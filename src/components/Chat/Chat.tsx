@@ -16,10 +16,9 @@ import {
 } from '../../graphql';
 import moment from 'moment';
 
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import LoadingDots from '../LoadingDots/LoadingDots';
 
 import './Chat.scss';
-import LoadingDots from '../LoadingDots/LoadingDots';
 
 interface Messages {
   getMessages: Message[];
@@ -53,7 +52,7 @@ const Chat = () => {
     selectedUser &&
       messages &&
       refetch({ variables: { from: selectedUser.username } });
-  }, [selectedUser, messages]);
+  }, [selectedUser, messages, refetch]);
 
   useEffect(() => {
     if (
