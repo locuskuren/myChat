@@ -1,0 +1,16 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .home-wrapper {
+    display: flex;
+    width: 1682px;
+    border-right: 1px solid #dfe1e5;
+    border-left: 1px solid #dfe1e5;
+
+    @media screen and (max-width: 1682px) {
+      width: 100vw;
+    }
+  }
+}

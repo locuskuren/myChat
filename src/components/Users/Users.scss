@@ -1,0 +1,145 @@
+.users {
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 910px) {
+    width: 100vw;
+  }
+
+  .searchbar {
+    margin-left: 15px;
+    margin-top: 10px;
+
+    input {
+      width: 345px;
+      border-radius: 20px;
+      padding: 8px 0 8px 40px;
+      border: 1px solid #dfe1e5;
+      outline-color: #1da1f2;
+      font-size: 1.1rem;
+
+      @media screen and (max-width: 910px) {
+        width: 95vw;
+      }
+    }
+    .fa-magnifying-glass {
+      position: absolute;
+      font-size: 25px;
+      top: 20px;
+      margin-left: 10px;
+      color: #c4c9cc;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  .users-list {
+    margin: 10px 10px 0 10px;
+    height: calc(100vh - 110.39px);
+    overflow-y: auto;
+
+    .spinner-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .user {
+      display: flex;
+      padding: 10px 10px;
+      cursor: pointer;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      .details-wrapper {
+        display: flex;
+        margin-left: 10px;
+
+        img {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .details {
+          margin-left: 10px;
+          display: flex;
+          flex-direction: column;
+
+          .username {
+            font-weight: 500;
+          }
+
+          .message {
+            color: #707579;
+          }
+        }
+      }
+      .time-unread {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+
+        .time {
+          font-weight: 100;
+          font-size: 0.9rem;
+        }
+
+        .unread {
+          margin-top: 10px;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background-color: green;
+        }
+      }
+    }
+
+    .active {
+      background-color: #1da1f2 !important;
+      color: white !important;
+    }
+  }
+  .buttons {
+    height: 40px;
+    margin-bottom: 6px;
+    width: 100%;
+    display: flex;
+
+    button {
+      flex: 1;
+      border: none;
+      background-color: white;
+      margin: 0 5px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .update {
+      color: #757de8;
+      border: 1px solid #757de8;
+    }
+
+    .logout {
+      color: #ff7961;
+      border: 1px solid #ff7961;
+    }
+  }
+}
