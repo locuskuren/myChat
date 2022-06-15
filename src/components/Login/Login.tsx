@@ -29,7 +29,12 @@ const Login = () => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    login({ variables: { username, password } });
+    login({
+      variables: {
+        username: username.toLocaleLowerCase(),
+        password,
+      },
+    });
   };
 
   const validate = username !== '' && password !== '';

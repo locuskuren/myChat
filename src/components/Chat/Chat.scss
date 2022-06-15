@@ -76,6 +76,10 @@
       flex-direction: column-reverse;
       margin-bottom: 20px;
 
+      @media screen and (max-width: 1066px) {
+        width: 100%;
+      }
+
       .message {
         font-weight: 500;
         font-size: 1.1rem;
@@ -111,6 +115,10 @@
       border-radius: 10px;
       outline: none;
       font-size: 1.1rem;
+
+      @media screen and (max-width: 1066px) {
+        width: 90%;
+      }
     }
 
     button {
