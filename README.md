@@ -17,3 +17,6 @@ Simple chat app on which you can:
  - select user and chat with him
  - thanks to websockets you and your reciepient will recieve message instantly
 
+### Backend
+- Backend for this app hasn't been uploaded to this repo, as it was found online
+
